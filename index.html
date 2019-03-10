@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Your Website Title" />
+<meta property="og:description"   content="Your description" />
+<meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+</head>
+<style>
+.mySlides {display:none;}
+</style>
+<body>
+<ul>
+<li><a href="#about">About Me</a></li>
+<li><a href="#photos">My Photos</a></li>
+<li><a href="#playlist">My Playlist</a></li>
+<li><a href="#like">Like</a></li>
+<li><a href="#qrcoder">QR code</a></li>
+<li><a href="#spa">Q&A</a></li>
+<li><a href="#contact">Contact Me</a></li>
+</ul>
+
+
+<section id="about" class="section">
+<h2></h2>
+<h1><span>About</span></h1>
+Dolores Mary Eileen O'Riordan (/oʊˈrɪərdən/; 6 September 1971 – 15 January 2018) was an Irish musician, singer and songwriter.<br/> She was the vocalist for rock band The Cranberries from 1990 until they disbanded in 2003, later reuniting with her band in 2009, which she led until her death in 2018.<br/> Her death caused the Cranberries to disband again.<br/>
+O'Riordan's first solo album, Are You Listening?, was released in May 2007 and was followed up by No Baggage in 2009.<br/> O'Riordan was known for her lilting mezzo-soprano voice, her emphasised use of keening, and her strong Limerick accent.<br/> She appeared as a judge on RTÉ's The Voice of Ireland during the 2013–14 season.<br/> In April 2014, O'Riordan joined and began recording new material with the trio D.A.R.K.
+</section>
+<section id="photos" class="section">
+<h1><span>Photos</span></h1>
+<div class="image-scroller-content">
+	<img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/The_Cranberries_%287003089559%29.jpg/800px-The_Cranberries_%287003089559%29.jpg">
+	<img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_Cranberries_%286856966990%29.jpg/800px-The_Cranberries_%286856966990%29.jpg">
+	<img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/The_Cranberries%2C_Enmore_Theatre_%286871307942%29.jpg/800px-The_Cranberries%2C_Enmore_Theatre_%286871307942%29.jpg">
+	<button class="button button-left" onclick="plusDivs(-1)">&#10094;</button>
+	<button class="button button-right" onclick="plusDivs(+1)">&#10095;</button>
+</div>
+<script type="text/javascript">
+	var slideIndex = 1;
+	showDivs(slideIndex);
+
+	function plusDivs(n) {
+	  showDivs(slideIndex += n);
+	}
+
+	function showDivs(n) {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  if (n > x.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = x.length}
+	  for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";  
+	  }
+	  x[slideIndex-1].style.display = "block";  
+	}
+</script>
+</section>
+<br/>
+<section id="playlist" class="section">
+<h1><span>Playlist</span></h1>
+<center> <div class="videowrapper "><iframe width="800" height="534" src="https://www.youtube.com/embed/9XaS93WMRQQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></center>
+<br/>
+<br/>
+</section>
+
+<section id="like" class="section">
+<h1><span>Like this page</span></h1>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your like button code -->
+<div class="fb-like" 
+  data-href="https://www.your-domain.com/your-page.html" 
+  data-layout="standard" 
+  data-action="like" 
+  data-show-faces="true">
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</section>
+
+<section id="qrcoder" class="section">
+<h1><span>Scan my code</span></h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</section>
+
+<section id="spa" class="section">
+<h1><span>ans</span></h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</section>
+
+<section id="contact" class="section">
+<h1><span>Contacts</span></h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</section>
+
+
+<script type="text/javascript">
+$(function(){
+  $("#nav a").click(function(e){
+    e.preventDefault();
+    $('html,body').scrollTo(this.hash,this.hash); 
+  });
+});
+</script>
+<script type="text/javascript">
+ $(document).scroll(function() {
+    $('#menu').toggle($(this).scrollTop()>1000)
+ });​
+ </script>
+</body>
+</html>
