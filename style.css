@@ -111,3 +111,12 @@ h1 span {
   background-color: #2D547C;
   color: white;
 }
+.toned_table {
+	border: 1px solid #00CCFF;
+}
+tr {
+	border: 1px solid #00CCFF;
+}
+th {
+	border: 1px solid #00CCFF;
+}
