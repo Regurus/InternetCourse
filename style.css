@@ -6,11 +6,13 @@
 	background: white;
 }
 ul {
+	position: fixed;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	display:flex;
 	justify-content: center;
+	z-index: 10;
 }
 
 li {
@@ -98,4 +100,14 @@ h1 span {
 	height: 0;
 	margin: 0 auto;
 	max-width: 100%;
+}
+.generic_button {
+	background-color: #00CCFF;
+	color: #FFFFFF;
+	padding: 8px 24px;
+	border: none;
+}
+.generic_button:hover {
+  background-color: #2D547C;
+  color: white;
 }
