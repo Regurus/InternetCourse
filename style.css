@@ -12,6 +12,8 @@ ul {
 	padding: 0;
 	display:flex;
 	justify-content: center;
+	width: 100%;
+	background-color: #00CCFF;
 	z-index: 10;
 }
 
