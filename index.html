@@ -1,156 +1,242 @@
 <!DOCTYPE html>
 <html>
-	<title>Dolores Mary Eileen O'Riordan</title>
+
 <head>
-<link rel="stylesheet" type="text/css" href="style.css" />
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="UserInteraction.js"></script>
+    <script src="Helpers.js"></script>
+    <script src="Game.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    <meta charset="utf-8">
+
 </head>
-<style>
-.mySlides {display:none;}
-</style>
+
 <body>
-<br/>
-<br/>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#photos">Photos</a></li>
-<li><a href="#playlist">Playlist</a></li>
-<li><a href="#like">Like</a></li>
-<li><a href="#qrcoder">QR code</a></li>
-<li><a href="#spa">Q&A</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<br/>
-<br/>
-<br/>
-<br/>
-<section id="about" class="section">
-<h2></h2>
-<h1><span>About</span></h1>
-Dolores Mary Eileen O'Riordan (/oʊˈrɪərdən/; 6 September 1971 – 15 January 2018) was an Irish musician, singer and songwriter.<br/> She was the vocalist for rock band The Cranberries from 1990 until they disbanded in 2003, later reuniting with her band in 2009, which she led until her death in 2018.<br/> Her death caused the Cranberries to disband again.<br/>
-O'Riordan's first solo album, Are You Listening?, was released in May 2007 and was followed up by No Baggage in 2009.<br/> O'Riordan was known for her lilting mezzo-soprano voice, her emphasised use of keening, and her strong Limerick accent.<br/> She appeared as a judge on RTÉ's The Voice of Ireland during the 2013–14 season.<br/> In April 2014, O'Riordan joined and began recording new material with the trio D.A.R.K.
-</section>
-<section id="photos" class="section">
-<h1><span>Photos</span></h1>
-<div class="image-scroller-content">
-	<img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/The_Cranberries_%287003089559%29.jpg/800px-The_Cranberries_%287003089559%29.jpg">
-	<img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/The_Cranberries_%286856966990%29.jpg/800px-The_Cranberries_%286856966990%29.jpg">
-	<img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/The_Cranberries%2C_Enmore_Theatre_%286871307942%29.jpg/800px-The_Cranberries%2C_Enmore_Theatre_%286871307942%29.jpg">
-	<button class="button button-left" onclick="plusDivs(-1)">&#10094;</button>
-	<button class="button button-right" onclick="plusDivs(+1)">&#10095;</button>
-</div>
-<script type="text/javascript">
-	var slideIndex = 1;
-	showDivs(slideIndex);
+    <script type="text/javascript">
+        // default settings for game:
+        // 0- up
+        //1- right
+        //2- down
+        //3- left
+        //4- num bolls
+        //5- color of 5 points ball
+        //6- color of 15 points ball
+        //7- color of 25 points ball
+        //8- time to play
+        //9- number monsters
+        var gameSettings=new Array();
+        gameSettings[0] = 'ArrowUp';
+        gameSettings[1] = 'ArrowRight';
+        gameSettings[2] = 'ArrowDown';
+        gameSettings[3] = 'ArrowLeft';
+        gameSettings[4] = 50;
+        gameSettings[5] = "#4983FF";
+        gameSettings[6] = "#BA7A1A";
+        gameSettings[7] = "#5EBC00";
+        var gameRunning = false;
+        var paused = false;
+        //initialization sequence
+        var testUser = {password:'a',firstname:'a',lastname:'a'};
+        var usersDictionary={'a':testUser};
+        $( document ).ready(function() {
+            hideAlllExcept('welcome');
+            var logged = false;
+            game.placeStartScreen();
+            $('#html5colorpicker5').on('input', function() {
+                $(this).parent().css({
+                background: $(this).val()
+                });
+            });
+            $('#html5colorpicker15').on('input', function() {
+                $(this).parent().css({
+                background: $(this).val()
+                });
+            });
+            $('#html5colorpicker25').on('input', function() {
+                $(this).parent().css({
+                background: $(this).val()
+                });
+            });
+        });
+    </script>
+    <div id="menu">
+        <center id="menuItems">
+                <i class="fa fa-info fa-4x" style="color:#000000;" onclick="hideAlllExcept('about')"></i>
+                <i class="fa fa-cog fa-4x" style="color:#000000;" onclick="hideAlllExcept('settings')"></i>
+                <i class="fa fa-home fa-4x" style="color:#000000;" onclick="hideAlllExcept('welcome')"></i> 
+        </center>
+    </div>
+    <!----------------------------------------------------------------------WELCOME PAGE------------------------------------------------------------------------------>
+    <div id="welcome" class="screens">
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <img src="Welcome.png" alt="Welcome" style="width:100%;height:50%;float:auto;filter: blur(1px);">
+    </br>
+    </br>
+    </br>
+    
+    <ul>
+        <li> <button type="button" id="register_button" class="WelcomeScreenButton" style = "display:flex; justify-content:center;" onclick="hideAlllExcept('register')">Registering Page</button></li>
+        <li> <button type="button" id="login_button" class="WelcomeScreenButton" style = "display:flex; justify-content:center;" onclick="hideAlllExcept('login')">Login Page</button></li>
+        </ul>
+    </div>
+    </div>
+    <!----------------------------------------------------------------------LOGIN PAGE-------------------------------------------------------------------------------->
+    <div id="login" class="screens">
+    </br>
+    </br>
+    </br>
+    <img src="Welcome.png" alt="Welcome" style="width:100%;height:100%;float:middle;"> 
+</br>
+</br>
+</br>
+    <form class="register_form" id="loginForm" method="POST" action="" novalidate="novalidate" > 
+        <fieldset class="userForm">
+            <legend>Login</legend>
+            </br>
+            <input id="login_username" name="username" type="text" placeholder="Username">
+            </p>
+            <p>
+            <input id="login_password" name="password" type="password" placeholder="Password">
+            </p>
+            <p>
+            <input class="submit" type="submit" value="Log In">
+            </p>
+        </fieldset>
+    </form>
+    </div>
+    </div>
+    </div>
+    <!--------------------------------------------------------------------REGISTER PAGE------------------------------------------------------------------------------->
+    <div id="register" class="screens" >
+        </br>
+        </br>
+        </br>
+        <img src="Welcome.png" alt="Welcome" style="width:100%;height:100%;float:middle;"> 
+        </br>
+        </br>
+        </br>
+        <form class="register_form" id="signupForm" method="POST" action="" novalidate="novalidate" > 
+            <fieldset class="userForm">
+                <legend>Register a new account</legend>
+                <p>
+                <input id="reg_firstname" name="firstname" type="text" placeholder="First Name">
+                </p>
+                <p>
+                <input id="reg_lastname" name="lastname" type="text" placeholder="Last Name">
+                </p>
+                <p>
+                <input id="reg_username" name="username" type="text" placeholder="Username">
+                </p>
+                <p>
+                <input id="reg_password" name="password" type="password" placeholder="Password">
+                </p>
+                <p>
+                <input id="reg_confirm_password" name="confirm_password" type="password" placeholder="Confirm Password">
+                </p>
+                <p>
+                <input class="submit" type="submit" value="Submit">
+                </p>
+            </fieldset>
+        </form>
+    </div>
+    <!----------------------------------------------------------------------SETTINGS PAGE----------------------------------------------------------------------------->
+    <div id="settings" class="screens">
+        </br>
+        </br>
+        </br>
+        </br>
+        
+            <div style = "margin: auto;width: 30%;">
+                <form id="frm1" class="userForm">
+                    <label for="upMove">Up: </label>
+                    <input type="event" id='upMove' name="up" onkeyup="writeWhatPressed(event)"><br>
+                    </br>
+                    <label for="rightMove">Right: </label>
+                    <input type="event" id='rightMove' name="up" onkeyup="writeWhatPressed(event)"><br>
+                    </br>
+                    <label for="downMove">Down: </label>
+                    <input type="event" id='downMove' name="up" onkeyup="writeWhatPressed(event)"><br>
+                    </br>
+                    <label for="leftMove">Left: </label>
+                    <input type="event" id='leftMove' name="up" onkeyup="writeWhatPressed(event)"><br>
+                    </br>
+                    <label for="slider">Number of balls:</label>
+                    <input type="range" min="50" max="100" value="50" class="slider" id="slider">
+                    </br>
+                    <label for="html5colorpicker5">Color of 5 point food: </label>
+                    <div class="colorPickerBracket" style="background: #4983FF;">
+                    <input type="color" id="html5colorpicker5" class="colorPicker" onchange="clickColor(0, -1, -1, 5, 'html5colorpicker5')" value="#ff0000"><br>
+                    </div>
+                    <label for="html5colorpicker15">Color of 15 point food: </label>
+                    <div class="colorPickerBracket" style="background: #BA7A1A;">
+                    <input type="color" id="html5colorpicker15" class="colorPicker" onchange="clickColor(0, -1, -1, 5, 'html5colorpicker15')" value="#00ff00"><br>
+                    </div>
+                    <label for="html5colorpicker25">Color of 25 point food: </label>
+                    <div class="colorPickerBracket" style="background: #5EBC00;">
+                    <input type="color" id="html5colorpicker25" class="colorPicker" onchange="clickColor(0, -1, -1, 5, 'html5colorpicker25')" value="#0000ff"><br>
+                    </div>
+                    </br>
+                    <input type="submit" value="Save" class="submit" onclick="saveAllSettings(event)">
+                </form>
+            </div>
+    </div>
+    <!----------------------------------------------------------------------ABOUT PAGE-------------------------------------------------------------------------------->
+    <div id="about" class="screens">
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        About Page
+    </div>
+    <!---------------------------------------------------------------------GAME PAGE---------------------------------------------------------------------------------->
+    <div id="game" class="screens">
 
-	function plusDivs(n) {
-	  showDivs(slideIndex += n);
-	}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div id="game_itself" class="game_itself">
+            <canvas id="score_canvas"></canvas>
+            <br/>
+            <canvas id="game_canvas"></canvas>
+            </div>
+            <script type="text/javascript">
+                var ScoreBar = new ScoreScreen(document.getElementById('score_canvas'));
+                var mainCanvas = document.getElementById('game_canvas');
+                var game = new GameScreenUpdated(ScoreBar,mainCanvas);
+                game.initializeGame();
+                
+            </script>
+    </div>
+    <div id="hidden" style="display: none;">
+        <img src="start.png" id="start" alt="startingScreen" height="250" width="250">
+        <img src="apple.png" id="apple" alt="apple icon" height="626" width="626">
+    </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-	function showDivs(n) {
-	  var i;
-	  var x = document.getElementsByClassName("mySlides");
-	  if (n > x.length) {slideIndex = 1}
-	  if (n < 1) {slideIndex = x.length}
-	  for (i = 0; i < x.length; i++) {
-		x[i].style.display = "none";  
-	  }
-	  x[slideIndex-1].style.display = "block";  
-	}
-</script>	
-</section>
-<br/>
-<section id="playlist" class="section">
-<h1><span>Playlist</span></h1>
-<center> <div class="videowrapper "><iframe width="800" height="534" src="https://www.youtube.com/embed/videoseries?list=RDEM_RkIucMO6EI2__7ppDpbPg&start_radio=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></center>
-<br/>
-<br/>
-</section>
-
-<section id="like" class="section">
-<h1><span>Like this page</span></h1>
-<br/>
-<center><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fregurus.github.io%2FInternetCourse%2F&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="800" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe></center>
-<br/>
-</section>
-
-<section id="qrcoder" class="section">
-<h1><span>Scan my code</span></h1>
-<br/>
-<center><img src="qr.png"></center>
-<br/>
-</section>
-
-<section id="spa" class="section">
-<h1><span>ans</span></h1>
-<br/>
-Q1<br/>
-<table class="toned_table" >
-	<tr>
-		<th><b>Web 1.0</b></th>
-		<th><b>Web 2.0</b></th>
-		<th><b>Web 3.0</b></th>
-	</tr>
-	<tr>
-		<th>Little to no user interaction.</th>
-		<th>Ablity to  write information to server as well as read.</th>
-		<th>Dynamic interaction and execution of web based applications.</th>
-	</tr>
-	<tr>
-		<th>Network size in millions.</th>
-		<th>Network size in billions.</th>
-		<th>Network size in trillions.</th>
-	</tr>
-	<tr>
-		<th>Companies generate media content.</th>
-		<th>Peers generate media content.</th>
-		<th>Peers generate media content and applications.<br/>Companies build platforms for peers to generate such content.</th>
-	</tr>
-</table>
-<br/>
-<br/>
-<br/>
-Q2<br/>
-Web 1.0:<br/>
-Because of no actual ability to interact with the site, the user will have to know some sort of index resource (another site, printed media, etc) in order to find the needed information.<br/>
-Web 3.0<br/>
-The process is pretty straight forward user needs to go into search system of his choosing(Google,Yahoo, etc) type the query and get the results.<br/>
-</section>
-
-<section id="contact" class="section">
-<h1><span>Contacts</span></h1>
-<br/>
-<center>
-<form action="mailto:someone@example.com" method="post" enctype="text/plain" id="email">
-  Name:  
-<input type="text" size="40" name="name"><br>
-<br/>
-E-mail: 
-<input type="text" size="40" name="mail"><br>
-<br/>
-Text:<br>
-<textarea rows="4" cols="50" name="comment" form="email"></textarea>
-<br>
-<br/>
-<input type="submit" value="Send" class="generic_button">
-<input type="reset" value="Reset" class="generic_button">
-</form>
-</center>
-<br/>
-</section>
-
-
-<script type="text/javascript">
-$(function(){
-  $("#nav a").click(function(e){
-    e.preventDefault();
-    $('html,body').scrollTo(this.hash,this.hash); 
-  });
-});
+<!--TODO:
+        -add pause function to the game - done 
+        -rotating and animated pacman - done
+    -->
+    
 </script>
-<script type="text/javascript">
- $(document).scroll(function() {
-    $('#menu').toggle($(this).scrollTop()>1000)
- });​
- </script>
 </body>
 </html>

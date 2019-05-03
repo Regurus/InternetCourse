@@ -2,123 +2,172 @@
 {
 	position: fixed;
 	width: 100%;
-	height: 10px;
-	background: white;
+  	background-position: right bottom, left top;
+	background-repeat: repeat;
+	background-blend-mode: lighten;
+	background-color: rgb(255, 255, 255);
+}
+
+.welcome{
+    background-image: "Welcome.jpg";
+}
+
+.WelcomeScreenButton,.submit {
+	background-color:#FFFFFF;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	border:1px solid #494949;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:MainFont;
+	font-size:24px;
+	padding:14px 40px;
+	text-decoration:none;
+	text-shadow:0px -1px 30px #cc9f52;
+}
+.WelcomeScreenButton:hover,.submit:hover {
+	background-color:#818181;
+}
+.WelcomeScreenButton:active {
+	position:relative;
+	top:1px;
+}
+#register_button , #login_button{
+    display: inline-block;
 }
 ul {
-	position: fixed;
-	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	display:flex;
 	justify-content: center;
 	width: 100%;
-	background-color: #00CCFF;
-	z-index: 10;
 }
-
 li {
 	display:inline-block;
-	color: #FFFFFF;
-	#float: left;
-	#display: inline;
-	#position: fixed;
-	background: #00CCFF;
-
 }
-li a {
+.welcomeButtons{
+    margin:auto;
+}
+.register_form{
+	font-size: 20px;
+	margin-top: 15px;	
+	padding: 7px 35px;
 	color: #FFFFFF;
+	font-weight: bold;
+	border-radius: 2px;
+	cursor: pointer;
+	width: 100%;
+}
+.userForm{
+	border-color: rgb(0, 0, 0);
+	width: 400px;
+	margin:auto;
+	font-size: 20px;
+}
+input[type=text],[type=password] {
+	width: 97.7%;
+	height: 34px;
+	padding-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	box-shadow: 0 0 5px rgb(224, 224, 224);
+	border: 2px solid #898989;
+	color: #4f4f4f;
+	font-family: MainFont;
+	font-size: 16px;
+}
+input[type=event] {
+	width: 97.7%;
+	height: 34px;
+	padding-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	box-shadow: 0 0 5px rgb(224, 224, 224);
+	border: 2px solid #898989;
+	color: #4f4f4f;
+	font-family: MainFont;
+	font-size: 16px;
+}
+
+::placeholder {
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+}
+body{
+	color: #FFFFFF;
+	background-color: #000000;
+	font-family: MainFont;
+	font-size: 16px;
+	margin: 0px;
+}
+canvas{
+	margin: 0px;
+	background: #000000;
+}
+.game_itself{
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
 	display: block;
-	padding: 20px;
-	text-decoration: none;
-}
-li a.active {
-  background-color: #2D547C;
-  color: white;
+	width: 800px;
 }
 
-li a:hover:not(.active) {
-  background-color: #2D547C;
-  color: white;
+@font-face {
+	font-family: MainFont;
+	src: url(IndieFlower.ttf);
+  }
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 2px;
+	background: #ffffff;
 }
-h1 {
-	color: #000000;
-	width: 100%; 
-	text-align: center; 
-	border-bottom: 5px solid #00CCFF; 
-	line-height: 2px;
-	margin: 10px 0 20px; 
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #FFFFFF;
+	cursor: pointer;
 }
-h1 span { 
-	#color: #00CCFF;
-    background:#fff; 
-    padding:0 10px; 
+.slider::-webkit-slider-thumb:hover{
+	background: #aaaaaa;
 }
-.button{
-	border:none;
-	display:inline-block;
-	padding:8px 16px;
-	vertical-align:middle;
-	overflow:hidden;
-	text-decoration:none;
-	color:inherit;
-	background-color:inherit;
-	text-align:center;
-	cursor:pointer;
-	white-space:nowrap
+.slider::-webkit-slider-thumb:active{
+	background: #aaaaaa;
 }
-.button-left
-{
-	color: white;
-	position:absolute;
-	top:50%;left:0%;
-	transform:translate(0%,-50%);
-	-ms-transform:translate(-0%,-50%)
-	}
-.button-right
-{
-	color: white;
-	position:absolute;
-	top:50%;
-	right:0%;
-	transform:translate(0%,-50%);
-	-ms-transform:translate(0%,-50%);
-	}
-.image-scroller-content
-{
-	margin-left:auto;
-	margin-right:auto;
-	max-width:800px;
-	position:relative;
-	position:relative;
-	}
-.videowrapper { 
-	float: none;
-	clear: both;
-	width: 800px;
-	position: relative;
-	padding-bottom: 524px;
-    padding-top: 15px;
-	height: 0;
-	margin: 0 auto;
-	max-width: 100%;
+.slider::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #FFFFFF;
+	cursor: pointer;
 }
-.generic_button {
-	background-color: #00CCFF;
-	color: #FFFFFF;
-	padding: 8px 24px;
+.colorPicker{
+	-webkit-appearance: none;
+	padding: 0;
 	border: none;
+	border-radius: 10px;
+	width: 100%;
+	height: 20px;
+	opacity: 0;
 }
-.generic_button:hover {
-  background-color: #2D547C;
-  color: white;
-}
-.toned_table {
-	border: 1px solid #00CCFF;
-}
-tr {
-	border: 1px solid #00CCFF;
-}
-th {
-	border: 1px solid #00CCFF;
-}
+#colorPicker::-webkit-color-swatch {
+	border: none;
+	border-radius: 10px;
+	padding: 0;
+  }
+#colorPicker::-webkit-color-swatch-wrapper {
+	border: none;
+	border-radius: 10px;
+	padding: 0;
+  }
+  .colorPickerBracket{
+	  border-radius: 10px;
+	  width: 50%;
+  }
